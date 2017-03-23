@@ -12,6 +12,6 @@ Sometimes it feels like it would be easier to send messages on horseback ... or 
 
 Currently supported bot APIs:
 
-| Service | Send text messages | Recieve text messages |
-|-|-|-|
-| Telegram | ✅ | ❌|
+| Service  | Send text messages | Recieve text messages |
+|----------|--------------------|-----------------------|
+| Telegram | ✅                 |                     ❌ |
