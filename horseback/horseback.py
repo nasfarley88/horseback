@@ -10,7 +10,7 @@ class ServicesDict(dict):
 
     """
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: str):
         try:
             return super().__getitem__(key)
         except KeyError:
@@ -27,7 +27,11 @@ class Horseback:
     def __init__(self, services):
         self.services = ServicesDict({s.service_type: s for s in services})
 
-    async def send_text_message(self, service_type, chat_id, text, **kwargs):
+    async def send_text_message(self,
+                                service_type: str,
+                                chat_id,
+                                text: str,
+                                **kwargs):
         service = self.services[service_type]
         # TODO get this to return a TextMessage type (whenever I get round to
         # making that type)
