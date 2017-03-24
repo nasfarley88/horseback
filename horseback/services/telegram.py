@@ -1,5 +1,3 @@
-from telepot import Bot
-
 from ..chatobjects.textmessage import TextMessage
 
 
@@ -9,12 +7,9 @@ class Telegram:
         self.session = session
         self.key = key
 
-        self._bot = Bot(key)
         self.service_type = "telegram"
 
     async def send_text_message(self, chat_id, text, **kwargs) -> TextMessage:
-        # TODO figure out how to make this async
-        # json = self._bot.sendMessage(chat_id, text, **kwargs)
         payload = {
             'chat_id': chat_id,
             'text': text,

@@ -1,5 +1,5 @@
 # horseback
-A (very alpha) bot API that targets *every* bot API it can.
+A (very alpha) bot API that targets *every* bot API it can. Uses Python 3.6+.
 
 > For a large part of human history, communication happened at the speed of a horse. Sending a message and getting a reply could take days or even months. Today our messages travel thousands of miles into the sky ...
 – [Dieter F. Uchtdorf](https://www.lds.org/general-conference/2016/10/o-how-great-the-plan-of-our-god)
