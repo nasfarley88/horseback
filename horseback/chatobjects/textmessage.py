@@ -8,8 +8,8 @@ class TextMessage(ChatObject):
     come from services or service member functions.
 
     """
-    def __init__(self, json, chat_id, message_id, text):
-        super().__init__(json)
+    def __init__(self, service, json, chat_id, message_id, text):
+        super().__init__(service, json)
         self.message_id = message_id
         self.chat_id = chat_id
         self.text = text

@@ -1,3 +1,4 @@
+from .chatobjects.textmessage import TextMessage
 from .utils import ServicesDict
 
 
@@ -15,8 +16,23 @@ class Horseback:
                                 service_type: str,
                                 chat_id,
                                 text: str,
-                                **kwargs):
+                                **kwargs) -> TextMessage:
+        """Send text message with named service."""
+
         service = self.services[service_type]
-        # TODO get this to return a TextMessage type (whenever I get round to
-        # making that type)
         return await service.send_text_message(chat_id, text, **kwargs)
+
+    async def get_updates(self,
+                          service_type: str,
+                          **kwargs) -> list:
+
+        """Get updates from named service.
+
+        TODO make this function so that it acts like a single service. E.g. it
+        will 'long poll' by long polling all the services and then as soon at
+        it recieves udpates from one of them, it returns (cancelling the long
+        polling of the other services).
+        """
+
+        service = self.services[service_type]
+        return await service.get_updates(**kwargs)
