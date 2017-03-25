@@ -1,13 +1,14 @@
 from ..chatobjects.textmessage import TextMessage
+from ..chatservice import ChatService
 
 
-class Telegram:
+class Telegram(ChatService):
     def __init__(self, session, key, *args, **kwargs):
         """Basic ChatService for Telegram."""
+        super().__init__("telegram")
+
         self.session = session
         self.key = key
-
-        self.service_type = "telegram"
 
     # Helper funtions
     async def _get(self, endpoint, **kwargs):
@@ -24,7 +25,7 @@ class Telegram:
                     self.key, endpoint), data=payload, **kwargs) as resp:
             return await resp.json()
 
-    # Methods that are needed
+    # Redefined abstract methods
     async def json2textmessage(self, json: dict) -> TextMessage:
         """Takes JSON from telegram and creates a TextMessage object."""
         return TextMessage(
